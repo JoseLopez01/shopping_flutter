@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../colors.dart';
 import '../constants.dart';
-import 'bag_button.dart';
+import 'custom_icon_button.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
@@ -69,10 +70,19 @@ class _ProductCardImage extends StatelessWidget {
             ),
           ),
         ),
-        const Positioned(
+        Positioned(
           right: 0,
           bottom: -16,
-          child: BagButton(),
+          child: CustomIconButton(
+            height: AppConstants.spacing * 4,
+            width: AppConstants.spacing * 4,
+            padding: AppConstants.spacing,
+            child: SvgPicture.asset(
+              'assets/icons/bag.svg',
+              width: AppConstants.spacing * 1.75,
+              height: AppConstants.spacing * 2,
+            ),
+          ),
         )
       ],
     );

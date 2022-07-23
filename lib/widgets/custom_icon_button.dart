@@ -6,14 +6,16 @@ import '../constants.dart';
 class CustomIconButton extends StatelessWidget {
   const CustomIconButton({
     Key? key,
-    required this.height,
-    required this.width,
     required this.child,
+    this.height = 32,
+    this.width = 32,
+    this.padding = 4.0,
   }) : super(key: key);
 
   final double height;
   final double width;
   final Widget child;
+  final double padding;
 
   @override
   Widget build(BuildContext context) {

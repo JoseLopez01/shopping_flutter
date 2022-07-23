@@ -14,7 +14,10 @@ class CustomBottomNavBar extends StatelessWidget {
     return Container(
       height: 91,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(AppConstants.spacing * 2.5),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(AppConstants.spacing * 2.5),
+          topRight: Radius.circular(AppConstants.spacing * 2.5),
+        ),
         gradient: LinearGradient(
           colors: AppColors.secondary.colors,
           begin: Alignment.topCenter,

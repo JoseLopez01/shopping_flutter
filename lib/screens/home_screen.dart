@@ -37,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: const SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: _Content(),
       ),
       bottomNavigationBar: const CustomBottomNavBar(),
@@ -52,7 +53,11 @@ class _Content extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: AppConstants.spacing * 3),
+      padding: EdgeInsets.only(
+        left: AppConstants.spacing * 3,
+        right: AppConstants.spacing * 3,
+        bottom: AppConstants.spacing * 2.5,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

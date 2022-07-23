@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
+import 'recommended_card.dart';
 
 class RecommendedSlider extends StatelessWidget {
   const RecommendedSlider({
@@ -16,17 +17,9 @@ class RecommendedSlider extends StatelessWidget {
         clipBehavior: Clip.none,
         scrollDirection: Axis.horizontal,
         itemCount: 4,
+        padding: EdgeInsets.only(left: AppConstants.spacing * 3),
         itemBuilder: (_, __) {
-          return Container(
-            width: 286,
-            margin: EdgeInsets.only(right: AppConstants.spacing * 2),
-            decoration: BoxDecoration(
-              color: Colors.red,
-              borderRadius: BorderRadius.circular(
-                AppConstants.spacing * 2.5,
-              ),
-            ),
-          );
+          return const RecommendedCard();
         },
       ),
     );
