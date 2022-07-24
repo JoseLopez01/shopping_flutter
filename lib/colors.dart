@@ -12,9 +12,13 @@ class AppColors {
 
   static const LinearGradient secondary = LinearGradient(
     colors: [Color(0XFF32303D), Color(0XFF0C0A19)],
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
   );
   static const LinearGradient icon = LinearGradient(
     colors: [Color(0XFFFFFFFF), Color(0XFFCBAAFF)],
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
   );
   static const LinearGradient buttonsGradient = LinearGradient(
     colors: [Color(0XFF8E43FF), Color(0XFF935DE6)],

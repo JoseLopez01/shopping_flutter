@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'screens/home_screen.dart';
 import 'screens/on_boarding_screen.dart';
+import 'screens/product_screen.dart';
 import 'theme.dart';
 
 void main() {
@@ -17,10 +18,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: theme,
-      initialRoute: 'home_screen',
+      initialRoute: 'product_screen',
       routes: {
         'on_boarding_screen': (_) => const OnBoardingScreen(),
         'home_screen': (_) => const HomeScreen(),
+        'product_screen': (_) => const ProductScreen(),
       },
     );
   }
