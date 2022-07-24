@@ -30,7 +30,7 @@ class CustomButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(
             AppConstants.spacing * 2,
           ),
-          child: const Text('Explore'),
+          child: child,
         ),
       ),
     );
