@@ -79,6 +79,13 @@ class _Content extends StatelessWidget {
           ),
           const ProductsSlider(),
           SizedBox(height: AppConstants.spacing * 2.5),
+          Text(
+            'Recommended',
+            style: Theme.of(context).textTheme.headline3!.copyWith(
+                  color: AppColors.textColor,
+                ),
+          ),
+          SizedBox(height: AppConstants.spacing * 2),
           const RecommendedSlider(),
         ],
       ),
