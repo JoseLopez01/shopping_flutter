@@ -30,6 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const ProfileInfo(),
         actions: [
           CustomIconButton(
+            onPressed: () {},
             height: AppConstants.spacing * 4,
             width: AppConstants.spacing * 4,
             child: SvgPicture.asset('assets/icons/bell.svg'),

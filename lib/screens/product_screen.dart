@@ -68,6 +68,7 @@ class _BagButton extends StatelessWidget {
       right: AppConstants.spacing * 3,
       top: AppConstants.spacing * 6,
       child: CustomIconButton(
+        onPressed: () {},
         child: SvgPicture.asset('assets/icons/bag.svg'),
       ),
     );

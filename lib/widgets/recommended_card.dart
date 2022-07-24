@@ -51,8 +51,13 @@ class RecommendedCard extends StatelessWidget {
             left: AppConstants.spacing * -3.25,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(AppConstants.spacing * 2),
-              child: const Image(
-                image: NetworkImage('https://via.placeholder.com/84x84'),
+              child: const FadeInImage(
+                height: 84,
+                width: 84,
+                placeholder: AssetImage('assets/images/no-image.png'),
+                image: NetworkImage(
+                  'https://via.placeholder.com/84x84',
+                ),
               ),
             ),
           ),
@@ -60,6 +65,7 @@ class RecommendedCard extends StatelessWidget {
             bottom: AppConstants.spacing,
             right: AppConstants.spacing,
             child: CustomIconButton(
+              onPressed: () {},
               child: SvgPicture.asset('assets/icons/bag.svg'),
             ),
           )

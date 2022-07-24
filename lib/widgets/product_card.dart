@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../colors.dart';
 import '../constants.dart';
+import '../screens/product_screen.dart';
 import 'custom_icon_button.dart';
 
 class ProductCard extends StatelessWidget {
@@ -10,13 +11,40 @@ class ProductCard extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  Route _createRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return const ProductScreen();
+      },
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(0, 1);
+        const end = Offset.zero;
+
+        final tween = Tween(begin: begin, end: end).chain(
+          CurveTween(curve: Curves.ease),
+        );
+
+        final offsetAnimation = animation.drive(tween);
+        return SlideTransition(
+          position: offsetAnimation,
+          child: child,
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return _ProductCardContainer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const _ProductCardImage(),
+          _ProductCardImage(
+            onBuy: () {
+              FocusScope.of(context).unfocus();
+              Navigator.of(context).push(_createRoute());
+            },
+          ),
           SizedBox(height: AppConstants.spacing * 2.75),
           Text(
             'Product Name',
@@ -53,7 +81,10 @@ class ProductCard extends StatelessWidget {
 class _ProductCardImage extends StatelessWidget {
   const _ProductCardImage({
     Key? key,
+    required this.onBuy,
   }) : super(key: key);
+
+  final VoidCallback onBuy;
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +95,10 @@ class _ProductCardImage extends StatelessWidget {
           borderRadius: BorderRadius.circular(
             AppConstants.spacing * 2,
           ),
-          child: const Image(
+          child: const FadeInImage(
+            height: 120,
+            width: 160,
+            placeholder: AssetImage('assets/images/no-image.png'),
             image: NetworkImage(
               'https://via.placeholder.com/160x120',
             ),
@@ -74,14 +108,9 @@ class _ProductCardImage extends StatelessWidget {
           right: 0,
           bottom: -16,
           child: CustomIconButton(
-            height: AppConstants.spacing * 4,
-            width: AppConstants.spacing * 4,
+            onPressed: onBuy,
             padding: AppConstants.spacing,
-            child: SvgPicture.asset(
-              'assets/icons/bag.svg',
-              width: AppConstants.spacing * 1.75,
-              height: AppConstants.spacing * 2,
-            ),
+            child: SvgPicture.asset('assets/icons/bag.svg'),
           ),
         )
       ],

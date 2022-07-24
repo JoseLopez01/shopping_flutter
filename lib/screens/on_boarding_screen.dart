@@ -55,7 +55,6 @@ class _Card extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: size.width,
-      height: size.height * 0.33,
       padding: EdgeInsets.only(
         top: AppConstants.spacing * 2.5,
         right: AppConstants.spacing * 8,

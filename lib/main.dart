@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: theme,
-      initialRoute: 'product_screen',
+      initialRoute: 'on_boarding_screen',
       routes: {
         'on_boarding_screen': (_) => const OnBoardingScreen(),
         'home_screen': (_) => const HomeScreen(),
